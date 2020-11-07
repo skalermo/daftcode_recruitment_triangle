@@ -1,5 +1,3 @@
-from Triangle import Triangle
-
 import time
 from PathTree import PathTree, Node
 
@@ -14,12 +12,12 @@ def extract_tree_from(filename):
 
 def main():
     problems = [
-        'very_easy.txt',
-        'easy.txt',
-        'medium.txt',
-        'hard.txt'
+        'problems/very_easy.txt',
+        'problems/easy.txt',
+        'problems/medium.txt',
+        'problems/hard.txt'
     ]
-    triangle = extract_tree_from(problems[2])
+    triangle = extract_tree_from(problems[0])
     tree = PathTree()
     for nodes in triangle:
         tree.add_leaves([Node(x) for x in nodes])

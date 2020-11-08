@@ -1,4 +1,6 @@
+import sys
 import time
+
 from PathTree import PathTree, Node
 
 
@@ -11,13 +13,11 @@ def extract_tree_from(filename):
 
 
 def main():
-    problems = [
-        'problems/very_easy.txt',
-        'problems/easy.txt',
-        'problems/medium.txt',
-        'problems/hard.txt'
-    ]
-    triangle = extract_tree_from(problems[0])
+    if len(sys.argv) != 2:
+        print(f'Usage: solve.py file/to/process')
+        return
+
+    triangle = extract_tree_from(sys.argv[1])
     tree = PathTree()
     for nodes in triangle:
         tree.add_leaves([Node(x) for x in nodes])

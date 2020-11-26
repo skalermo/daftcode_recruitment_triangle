@@ -1,3 +1,4 @@
+import sys
 from random import randint
 
 
@@ -10,7 +11,11 @@ def generate(rows: int):
 
 
 def main():
-    n = 500
+    if len(sys.argv) != 2:
+        print(f'Usage: python {sys.argv[0]} number_of_rows')
+        return
+
+    n = int(sys.argv[1])
     generate(n)
 
 

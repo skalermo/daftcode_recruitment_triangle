@@ -22,6 +22,7 @@ For heuristic I just calculated distance from current node to bottom row multipl
 Currently, there are two implementations: written in Python and Rust, and I also compiled Rust solution to native Python module using [PyO3](https://github.com/PyO3/pyo3). It is not my proudest code (especially Rust code), but it works.
 
 ## Usage
+Keep in mind that this project was made and meant to be run on Linux.
 
 ### Python (PyO3)
 For plain Python usage Python3 is required.  

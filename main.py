@@ -1,14 +1,28 @@
 import sys
 import time
+import argparse
 
-from solver import solve
-# from triangle_solver_lib import solve_fast as solve
+
+def parse_args():
+    parser = argparse.ArgumentParser(prog='main.py',
+                                     description='Program to solve triangle problem using chosen solver implementation')
+
+    parser.add_argument('filename', type=str, help='File to solve')
+    parser.add_argument('-r', action='store_true', default=False, help='Use solver implemented in Rust')
+    return parser.parse_args()
 
 
 def main():
-    if len(sys.argv) != 2:
-        print(f'Usage: solve.py file/to/process')
-        return
+    args = parse_args()
+
+    if args.r:
+        try:
+            from triangle_solver_lib import solve_fast as solve
+        except ImportError:
+            print('Cannot find "triangle_solver_lib.so". Falling back to python solver')
+            from solver import solve
+    else:
+        from solver import solve
 
     filename = sys.argv[1]
 

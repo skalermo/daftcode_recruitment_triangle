@@ -7,7 +7,7 @@ def generate(rows: int):
         numbers_row = []
         for j in range(i):
             numbers_row.append(str(randint(1, 9)))
-        print(''.join([' ' * (rows - i), ' '.join(numbers_row), ' ' * (rows - i)]))
+        print(' ' * (rows - i), ' '.join(numbers_row), ' ' * (rows - i), sep='')
 
 
 def main():
